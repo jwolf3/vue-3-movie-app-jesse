@@ -1,14 +1,29 @@
 <template>
     <div class="pageSwitcher">
-        <button class="pageButton" @click="emitPageNumDown" v-if="pageNum > 1">
+
+        <router-link
+        :to="{ name: 'Home', query: { page: pageNum - 1 }}"
+        rel="prev"
+        v-if="pageNum != 1"
+        @click="pageScrollUp" 
+        class="pageButton"
+        > 
             <i class="fas fa-minus-square"></i>
-        </button>
+        </router-link>
+
         <span class="currentPageNumber">{{pageNum}}</span>
-        <button class="pageButton" @click="emitPageNumUp">
+
+        <router-link
+        :to="{ name: 'Home', query: { page: pageNum + 1 }}"
+        rel="next"
+        @click="pageScrollUp"
+        class="pageButton"
+        >
             <i class="fas fa-plus-square"></i>
-        </button>
+        </router-link>
+
     </div>
-</template>
+</template> 
 
 <script>
 export default {
@@ -22,12 +37,8 @@ export default {
     },
 
     methods: {
-        emitPageNumUp() {
-           this.$emit('emitPageNumUp') 
-        },
-
-        emitPageNumDown() {
-           this.$emit('emitPageNumDown') 
+        pageScrollUp() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     }
     
@@ -51,7 +62,7 @@ export default {
 .pageButton {
     font-size: xxx-large;
     border: none;
-    margin: 0 1.5rem;
+    margin: 10px 1.5rem 0 1.5rem;
     color: #42b883;
     background: #FFF;
 }
