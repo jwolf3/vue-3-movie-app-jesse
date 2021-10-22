@@ -16,7 +16,7 @@ export default {
 <style scoped>
 header {
     text-align: center;
-    background: #42b883;
+    background: blue;
     height: 5rem;
     display: flex;
     align-items: center;
