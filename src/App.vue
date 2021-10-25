@@ -23,7 +23,8 @@ export default {
 }
 
 #app {
-  background: rgb(235, 231, 231);
+  /* background: rgb(235, 231, 231); */
+  background: red;
   min-height: 100vh;
 }
 </style>
