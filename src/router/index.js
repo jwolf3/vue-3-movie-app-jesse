@@ -9,7 +9,7 @@ const routes = [
     name: 'Home',
     component: Home,
     
-    // props: route => ({ pageNum: parseInt(route.query.page) || 1 }) //test
+    props: route => ({ pageNum: parseInt(route.query.page) || 1 })
   },
   {
     path: '/movie/:id',
