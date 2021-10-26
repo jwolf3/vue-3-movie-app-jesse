@@ -1,15 +1,50 @@
 <template>
     <header>
         <div id="nav">
-            <router-link to="/">Home</router-link> |
-            <router-link to="/favorites">Favorite Movies</router-link>
+            <div class="pages">
+                <router-link to="/">Home</router-link> |
+                <router-link to="/favorites">Favorite Movies</router-link>
+            </div>
+            <div class="searchDiv">
+                <input 
+                type="text" 
+                placeholder="Search movie" 
+                class="searchInput" 
+                v-model="searchInput"
+                >
+                <!-- :to="{ name: 'Home', query: { page: pageNum + 1 }}"  -->
+                <router-link 
+                to="/"
+                class="search"
+                @click.prevent="searchByInput"
+                > 
+                    <i class="fas fa-search"></i> 
+                </router-link>
+            </div>
         </div>
     </header>
 </template>
 
 <script>
+
 export default {
-    
+    name: 'Header',
+
+    data() {
+        return {
+            searchInput: ''
+        }
+    },
+
+    methods: {
+        searchByInput() {
+            if (this.searchInput) {
+                //verander spaties in plussen .split(' ').join('+')
+                const searchInputWithoutSpaces = this.searchInput.split(' ').join('+')
+                this.$emit('emitMoviesFoundBySearch', searchInputWithoutSpaces) 
+            }
+        }
+    }
 }
 </script>
 
@@ -27,16 +62,45 @@ header {
 #nav {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
+    max-width: 1072px;
+    width: 100%;
+    line-height: 3rem;
 }
 
 a {
     color: white;
     margin: 0 1rem;
+    text-decoration: none;
 }
 
 .router-link-active {
     font-weight: 600;
     text-decoration: underline;
 }
+
+.searchDiv {
+    background: #FFF;
+    height: 3rem;
+    margin-right: 1rem;
+    border-radius: 3px;
+}
+
+.search {
+    color: #42b883;
+    font-size: 20px;
+}
+
+.searchInput {
+    border: 0;
+    margin-left: 1rem;
+    width: 12rem;
+    line-height: 2rem;
+    font-size: 14px;
+}
+
+.searchInput:focus-visible {
+    outline: none;
+}
+
 </style>

@@ -1,6 +1,6 @@
 <template>
-  <Header/>
-  <router-view/>
+  <Header @emitMoviesFoundBySearch="MoviesFoundBySearch"/>
+  <router-view :inputSearch="inputSearch"/>
 </template>
 
 <script>
@@ -8,8 +8,18 @@ import Header from '@/components/Header.vue'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      inputSearch: ''
+    }
+  },
   components: {
     Header,
+  },
+  methods: {
+    MoviesFoundBySearch(inputSearch) {
+      this.inputSearch = inputSearch
+    }
   }
 }
 </script>

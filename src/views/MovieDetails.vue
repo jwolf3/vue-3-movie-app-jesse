@@ -46,7 +46,6 @@ export default {
     MovieService.getMovie(this.id)
       .then(response => {
         this.movieInfo = response.data
-        console.log(this.movieInfo);
       })
       .catch(error => {
         console.log(error)

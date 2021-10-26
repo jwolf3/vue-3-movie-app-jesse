@@ -40,7 +40,7 @@ import MovieFilters from '@/components/MovieFilters.vue'
 export default {
   name: 'Home',
 
-  props: ['pageNum'],
+  props: ['pageNum','inputSearch'],
 
   components: {
     Movies,
@@ -70,6 +70,30 @@ export default {
       })
     },
 
+    //Watch een bepaalde property (kijkt wanneer deze veranderd)
+    watch: {
+      inputSearch: function() {
+        MovieService.searchMovie(this.inputSearch)
+        .then(response => {
+            this.movies = response.data
+            console.log(response.data);
+        })
+        .catch(error => {
+            alert(error)
+        })
+
+        MovieService.searchMovie(this.inputSearch)
+        .then(response => {
+            this.filmsNumberTwo = response.data
+            console.log(response.data);
+        })
+        .catch(error => {
+            alert(error)  
+        })
+        
+      }
+    },
+
     methods: { 
       loadMovies() {
         //KRIJG DE MOVIES ADHV HET PAGINANUMMER, ZET DEZE GELIJK AAN THIS.MOVIES
@@ -96,7 +120,7 @@ export default {
         
         movRef.on('value', snapshot => {
           const data = snapshot.val()
-          let favMovArray = []
+          const favMovArray = []
 
           // ALS ER 0 FILMS IN DE DB STAAN (DUS DATA == NULL) ZET ALLFAVORITEMOVIES OP []
           if (data == null)  {

@@ -1,5 +1,5 @@
 <template>
-    <div class="pageSwitcher">
+    <div class="pageSwitcher">  
 
         <router-link
         :to="{ name: 'Home', query: { page: pageNum - 1 }}"

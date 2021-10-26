@@ -104,6 +104,14 @@ hr {
     cursor: pointer;
 }
 
+.GenreFilterButton:first-of-type {
+    margin: .5rem .5rem .5rem 0;
+}
+
+.GenreFilterButton:last-of-type {
+    margin: .5rem 0 .5rem .5rem;
+}
+
 .active {
     background: #35495e;
     color: white;
