@@ -14,7 +14,8 @@
 
           <div class="budget" v-if="movieInfo.budget != 0">
             <h2>Budget</h2>
-            <p> {{ movieInfo.budget }} </p>
+            <!-- functie dat zorgt voor punten bij een groot getal -->
+            <p> {{ movieInfo.budget.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") }} </p>
           </div>
 
           <h2>Vote average</h2>
@@ -51,12 +52,6 @@ export default {
         console.log(error)
       })
   },
-  // methods: {
-  //   numberWithCommas(x) {
-  //     //functie om een getal met punten komma's te tonen
-  //     return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".");
-  //   }
-  // },
 }
 </script>
 
