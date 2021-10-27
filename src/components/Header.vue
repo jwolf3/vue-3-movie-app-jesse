@@ -11,6 +11,7 @@
                 placeholder="Search movie" 
                 class="searchInput" 
                 v-model="searchInput"
+                @keyup.enter="searchByInput"
                 >
                 <!-- :to="{ name: 'Home', query: { page: pageNum + 1 }}"  -->
                 <router-link 

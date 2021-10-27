@@ -35,9 +35,9 @@
             <div class="imgDiv">
                 <img 
                 class="movieImage" 
-                :src="img_path + movie.poster_path" 
+                :src="movie.poster_path ? img_path + movie.poster_path : img_path + default_path" 
                 :alt="movie.title"
-                >
+                > 
                 <div class="svgDiv">
                     <!-- geef de favoriete films een andere class mee dan de anderen (check of id v/d film in de fav array zit) -->
                     <svg  
@@ -70,6 +70,7 @@ export default {
     data() {
         return {
             img_path: 'https://image.tmdb.org/t/p/w780/',
+            default_path: 'gzb6P78zeFTnv9eoFYnaJ2YrZ5q.jpg'
         }
     },
     methods: {

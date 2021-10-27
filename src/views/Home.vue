@@ -76,7 +76,6 @@ export default {
         MovieService.searchMovie(this.inputSearch)
         .then(response => {
             this.movies = response.data
-            console.log(response.data);
         })
         .catch(error => {
             alert(error)
@@ -85,7 +84,6 @@ export default {
         MovieService.searchMovie(this.inputSearch)
         .then(response => {
             this.filmsNumberTwo = response.data
-            console.log(response.data);
         })
         .catch(error => {
             alert(error)  
