@@ -102,6 +102,9 @@ hr {
     padding: .5rem 1rem;
     margin: .5rem;
     cursor: pointer;
+    background: rgb(245, 245, 245);
+    border: 1px solid grey;
+    border-radius: 2px;
 }
 
 .GenreFilterButton:first-of-type {
