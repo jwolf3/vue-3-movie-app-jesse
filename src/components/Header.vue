@@ -5,13 +5,15 @@
             <div class="hamburgerMenu">
                 <i class="fas fa-bars menuIcon" @click="toggleMobileMenu"></i>
             </div>
-            <div class="mobileMenu" v-show="mobileMenuOpen">
-                <i class="fas fa-times closeMobileMenu" @click="toggleMobileMenu"></i>
+            <transition name="slide">
+                <div class="mobileMenu" v-if="mobileMenuOpen">
+                    <i class="fas fa-times closeMobileMenu" @click="toggleMobileMenu"></i>
 
-                <router-link class="mobileRouterLink" to="/" @click="toggleMobileMenu">Home</router-link>
-                <hr>
-                <router-link class="mobileRouterLink" to="/favorites" @click="toggleMobileMenu">Favorite Movies</router-link>
-            </div>
+                    <router-link class="mobileRouterLink" to="/" @click="toggleMobileMenu">Home</router-link>
+                    <hr>
+                    <router-link class="mobileRouterLink" to="/favorites" @click="toggleMobileMenu">Favorite Movies</router-link>
+                </div>
+            </transition>
             <div class="blackOverlay" v-show="mobileMenuOpen"></div>
 
             <!-- Desktop >800px -->
@@ -60,6 +62,7 @@ export default {
                 //verander spaties in plussen .split(' ').join('+')
                 const searchInputWithoutSpaces = this.searchInput.split(' ').join('+')
                 this.$emit('emitMoviesFoundBySearch', searchInputWithoutSpaces) 
+                this.searchInput = ''
             }
         },
 
@@ -151,6 +154,7 @@ a {
     padding: 1rem;
     align-items: flex-start;
     box-shadow: 3px 3px 6px -3px rgba(0,0,0,0.7);
+    /* transform: translateX(-190px); */
 }
 
 .mobileRouterLink {
@@ -181,6 +185,21 @@ hr {
     background: rgba(0, 0, 0, 0.6);
 }
 
+/* ---------------transition--------------- */
+.slide-leave-active,
+.slide-enter-active {
+  transition: .5s ease-in;
+}
+.slide-enter-from {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.slide-leave-to {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+/* ---------------transition--------------- */
+
 @media (max-width: 799px) {
     .pages {
         display: none;
@@ -191,5 +210,4 @@ hr {
     }
 
 }
-
 </style>

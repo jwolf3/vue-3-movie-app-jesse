@@ -2,12 +2,12 @@ import firebase from "firebase/app";
 import "firebase/database";
 
 const config = {
-    apiKey: "AIzaSyD0EHzZ-q0A_uWPAPrnt4Lk44JEknng4DA",
-    authDomain: "vue-movie-app-jesse.firebaseapp.com",
-    projectId: "vue-movie-app-jesse",
-    storageBucket: "vue-movie-app-jesse.appspot.com",
-    messagingSenderId: "49467615402",
-    appId: "1:49467615402:web:e385a1bc03ea2994ffc8d3"
+    apiKey: "AIzaSyC1ta2952lXXO0KgCKo884MOR4TRbqaQ6U",
+    authDomain: "movie-app-vue-3.firebaseapp.com",
+    projectId: "movie-app-vue-3",
+    storageBucket: "movie-app-vue-3.appspot.com",
+    messagingSenderId: "571647589935",
+    appId: "1:571647589935:web:06c07c75933dfcabd5d0da"
 }
 
 const db = firebase.initializeApp(config);

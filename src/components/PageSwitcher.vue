@@ -60,11 +60,11 @@ export default {
 }
 
 .pageButton {
-    font-size: xxx-large;
     border: none;
     margin: 10px 1.5rem 0 1.5rem;
     color: #42b883;
     background: #FFF;
+    font-size: 48px; 
 }
 
 .pageButton:hover {
@@ -75,4 +75,5 @@ export default {
 .currentPageNumber {
     line-height: 5rem;
 }
+
 </style>
